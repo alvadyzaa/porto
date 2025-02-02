@@ -1,0 +1,36 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Container from '@/components/Container.astro'
+import Link from '@/components/Link.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
+import { SITE } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const projects = await getCollection('projects')
+---
+
+<Layout title="About" description={SITE.DESCRIPTION}>
+  <Container class="flex flex-col gap-y-6">
+    <Breadcrumbs items={[{ label: 'About', icon: 'lucide:info' }]} />
+
+    <section>
+      <div class="min-w-full">
+        <div class="prose prose-neutral mb-8 dark:prose-invert">
+          <p class="mb-4">
+            Currently, I work as a Manager at a Cafe while also handling Social Media Management. I have experience managing social media platforms, advertising, brand awareness, content creation, and engagement.
+<br></br>
+I am also the Founder of <Link
+href="https://instagram.com/arteisca"
+class="text-foreground"
+external
+underline>Arteisca</Link
+> where I developed and led digital marketing strategies to enhance brand presence.
+
+Im currently learning Next.Js, React and Typescript.
+          </p>
+        
+      </div>
+    </section>
+  </Container>
+</Layout>
